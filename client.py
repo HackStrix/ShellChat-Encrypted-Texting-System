@@ -18,7 +18,7 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-url = "http://f817-129-97-124-5.ngrok.io/"
+url = "http://127.0.0.1"
 
 def generate_rsa_key():
     publicKey, privateKey = rsa.newkeys(512)
