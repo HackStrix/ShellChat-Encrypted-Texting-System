@@ -1,5 +1,6 @@
 # encrypted-texting-system
 
+This is a chatting sytem created using python and mysql, this allows users to communicate over an encrypted channel using rsa(512). The server.py mantains a database of public keys of the every username on the network along with the encrypted chats of the users. These chats are encrypted using rsa and base64 which can only be decrypted using the rsa private key stored locally on the users computer. This allows encypted and secure flow of messages over the internet without violating the message privacy.
 
 ## Setup
 
