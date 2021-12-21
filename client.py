@@ -18,7 +18,7 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-url = "http://127.0.0.1"
+url = "http://127.0.0.1:5000/"
 
 def generate_rsa_key():
     publicKey, privateKey = rsa.newkeys(512)
