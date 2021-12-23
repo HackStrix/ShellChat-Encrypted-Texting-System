@@ -19,7 +19,7 @@ This can be setup online using ngrok and replacing the url in client.py with the
 
 ``` CREATE TABLE history (chat_id int, to_user varchar(255) NOT NULL, from_user varchar(255) NOT NULL, message varchar(10000));```
 
-```insert into history values ("lool", "lool", "dkjnfkjnkjfnkjf", 0);```
+```insert into history values (0, "lool", "lool", "dkjnfkjnkjfnkjf");```
 
 ```CREATE TABLE userkeys (username varchar(255) primary key not null,public_n varchar(1000) not null, public_e int not null);```
 
