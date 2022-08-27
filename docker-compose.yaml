@@ -1,0 +1,28 @@
+version: '3'
+
+volumes:
+  mysql:
+    external: false
+
+services:
+  mysql0:
+    # container_name: "mysql0"
+    image: hackstrix/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: userdata
+      MYSQL_USER: sankalp
+      MYSQL_PASSWORD: 123456
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql:/var/lib/mysql
+
+  server0:
+    # container_name: py_server
+    image: hackstrix/backend
+    ports:
+      - 5000:5000
+    depends_on:
+      - mysql0
+    restart: always

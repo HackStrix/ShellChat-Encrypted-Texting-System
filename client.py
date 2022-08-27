@@ -33,7 +33,7 @@ def decrypt_message(privateKey, message):
 
 def generate_keys(username_own):
     public,private = generate_rsa_key()
-    f = open("self_keys.dat","wb")
+    f = open(".keys/self_keys.dat","wb")
     d = {
         "public_own" : public,
         "private_own" : private,
@@ -49,7 +49,7 @@ def generate_keys(username_own):
           
 def check_exist():
     try:
-        f = open("self_keys.dat", "rb")
+        f = open(".keys/self_keys.dat", "rb")
         f.close()
         return True
     except:
@@ -60,7 +60,7 @@ def send_message(to_username,from_username):
     message = input("Enter Your Message (0 - Change User) : ")
     if message == "0":
         __init__()
-    f = open("user_keys.dat", "rb+")
+    f = open(".keys/user_keys.dat", "rb+")
     while True:
             data = pickle.load(f)
             if data["username_target"] == to_username:
@@ -91,7 +91,7 @@ def __init__():
 
 def have_key(username_target):
     try:
-        f = open("user_keys.dat","rb")
+        f = open(".keys/user_keys.dat","rb")
         while True:
             data=pickle.load(f)
             if data["username"] == username_target:
@@ -106,7 +106,7 @@ def ask_key(username_target):
     data = response.json()
     public_n = data["public_n"]
     public_e = data["public_e"]
-    f = open("user_keys.dat","ab")
+    f = open(".keys/user_keys.dat","ab")
     d = {
         "username_target" : username_target,
         "public_key":rsa.PublicKey(public_n, public_e)
@@ -116,7 +116,7 @@ def ask_key(username_target):
                             
     
 def receive_message(username_own):
-    f = open("self_keys.dat", "rb+")
+    f = open(".keys/self_keys.dat", "rb+")
     data = pickle.load(f)
     public_own = data["public_own"]
     private_own =  data["private_own"]
@@ -138,7 +138,7 @@ def receive_message(username_own):
     except:
         pass
         
-    f = open("self_keys.dat","wb")
+    f = open(".keys/self_keys.dat","wb")
     d = {
         "public_own" : public_own,
         "private_own" : private_own,

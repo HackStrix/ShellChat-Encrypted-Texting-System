@@ -7,7 +7,7 @@ app = Flask(__name__)
 def mysqlconnect():
     # To connect MySQL database
     conn = pymysql.connect(
-        host='localhost',
+        host='mysql0',
         user='sankalp',
         password = "123456",
         db='userdata',
@@ -96,4 +96,4 @@ def save_new_message(to_user,from_user,message):
     db.close()
 
 
-app.run(host="localhost",port=5000,debug=True)
+app.run(host="0.0.0.0",port=5000,debug=True)
